@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    stages {
+        stage('Code Checkout') {
+            steps {
+			sh'''
+			git config --global core.compression 0 
+			'''
+                script {
+                    deleteDir()
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/divyait7789/repo2.git']]])
+					
+
+                }
+            }
+			
+			
+        }
+		
+}
+}
