@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Code Checkout') {
+        stage('Code Checkout task') {
             steps {
 			sh'''
 			git config --global core.compression 0 
